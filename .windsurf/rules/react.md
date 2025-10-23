@@ -7,6 +7,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 # React Best Practices
 
 ## Component Structure
+
 - Use functional components over class components
 - Keep components small and focused
 - Extract reusable logic into custom hooks
@@ -15,6 +16,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 - Split large components into smaller, focused ones
 
 ## Hooks
+
 - Follow the Rules of Hooks
 - Use custom hooks for reusable logic
 - Keep hooks focused and simple
@@ -23,6 +25,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 - Avoid nested hooks
 
 ## State Management
+
 - Use useState for local component state.
 - Implement Redux Toolkit for efficient Redux development for medium-complex state logic.
 - Implement slice pattern for organizing Redux code.
@@ -30,6 +33,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 - Use xstate for complex state logic.
 
 ## Performance
+
 - Implement proper memoization (useMemo, useCallback)
 - Use React.memo for expensive components
 - Avoid unnecessary re-renders
@@ -38,6 +42,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 - Profile and optimize render performance
 
 ## Forms
+
 - Re-use @src/components/FormBuilder/FormBuilder.tsx to build forms.
 - Implement proper form validation.
 - Handle form submission states properly.
@@ -45,6 +50,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 - Implement proper accessibility for forms.
 
 ## Error Handling
+
 - Handle async errors properly
 - Show user-friendly error messages
 - Implement proper fallback UI
@@ -52,6 +58,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 - Handle edge cases gracefully
 
 ## Testing
+
 - Write unit tests for components
 - Implement integration tests for complex flows
 - Use React Testing Library
@@ -60,6 +67,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 - Implement proper mock data
 
 ## Accessibility
+
 - Use semantic HTML elements
 - Implement proper ARIA attributes
 - Ensure keyboard navigation
@@ -68,6 +76,7 @@ globs: **/*.tsx, **/*.jsx, components/**/*
 - Provide proper alt text for images
 
 ## Code Organization
+
 - Group related components together
 - Use proper file naming conventions
 - Implement proper directory structure

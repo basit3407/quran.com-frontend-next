@@ -1,9 +1,9 @@
-@use "src/styles/breakpoints";
-@use "src/styles/constants";
-@use "src/styles/utility";
+@use 'src/styles/breakpoints';
+@use 'src/styles/constants';
+@use 'src/styles/utility';
 
 @include utility.generate-line-width-scales(
-  "fallback_qpc_uthmani_hafs"
+  'fallback_qpc_uthmani_hafs'
 ); // fallback font's line-width
 
 .container {

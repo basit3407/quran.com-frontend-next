@@ -3,6 +3,7 @@ trigger: model_decision
 description: Key Next.js conventions for state changes, web vitals, and client-side code usage.
 globs: **/*.{ts,js,jsx,tsx}
 ---
+
 - Rely on Next.js Pages Router for state changes.
 - Prioritize Web Vitals (LCP, CLS, FID).
 - Minimize 'use client' usage:

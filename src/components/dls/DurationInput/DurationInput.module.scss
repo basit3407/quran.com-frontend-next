@@ -53,12 +53,12 @@
 
   // first input, border radius on left only
   & > div:first-child > input {
-    [dir="ltr"] & {
+    [dir='ltr'] & {
       border-start-start-radius: var(--border-radius-rounded);
       border-end-start-radius: var(--border-radius-rounded);
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       border-start-end-radius: var(--border-radius-rounded);
       border-end-end-radius: var(--border-radius-rounded);
     }
@@ -68,12 +68,12 @@
 
   // last input, border radius on right only
   & > div:last-child > input {
-    [dir="ltr"] & {
+    [dir='ltr'] & {
       border-start-end-radius: var(--border-radius-rounded);
       border-end-end-radius: var(--border-radius-rounded);
     }
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       border-start-start-radius: var(--border-radius-rounded);
       border-end-start-radius: var(--border-radius-rounded);
     }

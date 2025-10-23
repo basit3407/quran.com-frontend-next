@@ -23,7 +23,7 @@ $white: #ffffff;
   inset-block-start: 50%;
   inset-inline-start: 50%;
   transform: translate(-50%, -50%);
-  [dir="rtl"] & {
+  [dir='rtl'] & {
     transform: translate(50%, -50%);
   }
   object-fit: cover;
@@ -53,13 +53,13 @@ $white: #ffffff;
 
 .translation {
   direction: ltr;
-  font-family: "Figtree" !important;
+  font-family: 'Figtree' !important;
 }
 .watermark {
   text-align: center;
   color: $white;
   font-size: 28px;
-  font-family: "Figtree" !important;
+  font-family: 'Figtree' !important;
   font-weight: var(--font-weight-bold);
 }
 
@@ -74,7 +74,7 @@ $white: #ffffff;
 .logo {
   font-weight: 700;
   font-size: 42px;
-  font-family: "PlayfairDisplay" !important;
+  font-family: 'PlayfairDisplay' !important;
 }
 
 .logoPortrait {
@@ -102,22 +102,22 @@ $white: #ffffff;
 }
 
 .indopakFont {
-  font-family: "Indopak" !important;
+  font-family: 'Indopak' !important;
 }
 
 .uthmaniFont {
-  font-family: "UthmanicHafs" !important;
+  font-family: 'UthmanicHafs' !important;
 }
 
 .surahEnglish {
   font-size: 24px;
   font-weight: 400;
   color: $white;
-  font-family: "Figtree" !important;
+  font-family: 'Figtree' !important;
 }
 
 .surahArabic {
-  font-family: "NotoNastaliq" !important;
+  font-family: 'NotoNastaliq' !important;
   font-weight: 400;
   font-size: 30px;
   color: $white;

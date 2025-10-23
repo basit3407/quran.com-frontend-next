@@ -30,7 +30,7 @@ $pixel: 1px;
 
   &:before {
     border-top: $pixel solid var(--color-secondary-medium);
-    content: "";
+    content: '';
     margin: 0 auto;
     position: absolute;
     top: 50%;

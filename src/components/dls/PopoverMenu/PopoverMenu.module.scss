@@ -61,17 +61,17 @@ $separator-size: 1px;
   animation-timing-function: $animationEasing;
   will-change: transform, opacity;
 
-  &[data-state="open"] {
-    &[data-side="top"] {
+  &[data-state='open'] {
+    &[data-side='top'] {
       animation-name: slideDownAndFade;
     }
-    &[data-side="right"] {
+    &[data-side='right'] {
       animation-name: slideLeftAndFade;
     }
-    &[data-side="bottom"] {
+    &[data-side='bottom'] {
       animation-name: slideUpAndFade;
     }
-    &[data-side="left"] {
+    &[data-side='left'] {
       animation-name: slideRightAndFade;
     }
   }
@@ -103,7 +103,7 @@ $separator-size: 1px;
     color: var(--color-text-default);
   }
 
-  [dir="rtl"] & .iconWrapper.shouldFlipOnRTL {
+  [dir='rtl'] & .iconWrapper.shouldFlipOnRTL {
     transform: scaleX(-1);
   }
 

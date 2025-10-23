@@ -5,11 +5,11 @@
   user-select: none;
   touch-action: none;
 
-  &[data-orientation="horizontal"] {
+  &[data-orientation='horizontal'] {
     height: var(--spacing-medium);
   }
 
-  &[data-orientation="vertical"] {
+  &[data-orientation='vertical'] {
     flex-direction: column;
     width: var(--spacing-medium);
     height: calc(8 * var(--spacing-mega));
@@ -24,11 +24,11 @@
   position: relative;
   flex-grow: 1;
 
-  &[data-orientation="horizontal"] {
+  &[data-orientation='horizontal'] {
     height: var(--spacing-micro);
   }
 
-  &[data-orientation="vertical"] {
+  &[data-orientation='vertical'] {
     width: var(--spacing-micro);
   }
 }

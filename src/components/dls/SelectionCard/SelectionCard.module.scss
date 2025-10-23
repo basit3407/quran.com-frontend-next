@@ -1,4 +1,4 @@
-@use "src/styles/theme";
+@use 'src/styles/theme';
 $iconSize: calc(1.5 * var(--spacing-medium));
 
 .container {
@@ -37,7 +37,7 @@ $iconSize: calc(1.5 * var(--spacing-medium));
   & > svg {
     height: $iconSize;
     width: $iconSize;
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       transform: scaleX(-1);
     }
   }

@@ -1,4 +1,4 @@
-@use "src/styles/breakpoints";
+@use 'src/styles/breakpoints';
 
 $section-spacing: calc(var(--spacing-mega) * 1.5);
 $section-padding: calc(var(--spacing-large));

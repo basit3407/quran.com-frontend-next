@@ -1,4 +1,4 @@
-@use "src/styles/utility";
+@use 'src/styles/utility';
 
 .container {
   @include utility.center-vertically;

@@ -1,10 +1,10 @@
 // This file was automatically generated. Edits will be overwritten
 
 export interface Typegen0 {
-  "@@xstate/typegen": true;
+  '@@xstate/typegen': true;
   internalEvents: {
-    "": { type: "" };
-    "xstate.init": { type: "xstate.init" };
+    '': { type: '' };
+    'xstate.init': { type: 'xstate.init' };
   };
   invokeSrcNameMap: {};
   missingImplementations: {
@@ -14,16 +14,16 @@ export interface Typegen0 {
     delays: never;
   };
   eventsCausingActions: {
-    repeatSameAyah: "";
-    sendVerseRepeatFinished: "";
-    updateVerseTiming: "UPDATE_VERSE_TIMING";
+    repeatSameAyah: '';
+    sendVerseRepeatFinished: '';
+    updateVerseTiming: 'UPDATE_VERSE_TIMING';
   };
   eventsCausingServices: {};
   eventsCausingGuards: {
-    verseEnded: "TIMESTAMP_UPDATED";
-    verseRepeatOnProgress: "";
+    verseEnded: 'TIMESTAMP_UPDATED';
+    verseRepeatOnProgress: '';
   };
   eventsCausingDelays: {};
-  matchesStates: "finished" | "inProgress" | "verseEnded";
+  matchesStates: 'finished' | 'inProgress' | 'verseEnded';
   tags: never;
 }

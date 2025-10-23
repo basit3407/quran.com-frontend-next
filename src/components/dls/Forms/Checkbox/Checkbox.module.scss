@@ -29,8 +29,8 @@
   }
 }
 
-.checkbox[data-state="checked"],
-.checkbox[data-state="indeterminate"] {
+.checkbox[data-state='checked'],
+.checkbox[data-state='indeterminate'] {
   border: 1px solid var(--color-borders-hairline);
 }
 .checkbox[disabled] {

@@ -1,5 +1,5 @@
-@use "src/styles/utility";
-@use "src/styles/breakpoints";
+@use 'src/styles/utility';
+@use 'src/styles/breakpoints';
 
 .tabContainer {
   margin-block: var(--spacing-large);
@@ -90,12 +90,12 @@ $circle-border: 4px;
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     inset-inline-start: 0;
     transform: translateX(calc(-100% - $circle-spacing));
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       transform: translateX(calc(100% + $circle-spacing));
     }
 
@@ -107,18 +107,16 @@ $circle-border: 4px;
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     inset-inline-start: 0;
     // we need to translate the line directly under the circle and in the middle of it
     transform: translate(
-      calc(
-        -100% + ($circle-spacing * -1) + ($circle-size + $circle-border) / -2
-      ),
+      calc(-100% + ($circle-spacing * -1) + ($circle-size + $circle-border) / -2),
       calc(50% + ($circle-size + $circle-border) / 2)
     );
 
-    [dir="rtl"] & {
+    [dir='rtl'] & {
       transform: translate(
         calc(100% + $circle-spacing + ($circle-size + $circle-border) / 2),
         calc(50% + ($circle-size + $circle-border) / 2)

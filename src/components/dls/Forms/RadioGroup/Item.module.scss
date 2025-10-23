@@ -6,7 +6,7 @@
   height: 100%;
   position: relative;
   &:after {
-    content: "";
+    content: '';
     display: block;
     width: var(--spacing-xsmall);
     height: var(--spacing-xsmall);
@@ -15,7 +15,7 @@
   }
 }
 
-.indicator[data-state="checked"][data-disabled] {
+.indicator[data-state='checked'][data-disabled] {
   &:after {
     background-color: var(--color-secondary-medium);
   }
@@ -37,11 +37,11 @@
   }
 }
 
-.radioItem[data-state="checked"] {
+.radioItem[data-state='checked'] {
   border: 1px solid var(--color-primary-medium);
 }
 
-.radioItem[data-state="checked"][data-disabled] {
+.radioItem[data-state='checked'][data-disabled] {
   border: 1px solid var(--color-secondary-medium);
 }
 

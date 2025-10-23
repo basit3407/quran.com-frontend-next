@@ -1,4 +1,4 @@
-@use "src/styles/breakpoints";
+@use 'src/styles/breakpoints';
 
 $desktop-max-width: calc(16 * var(--spacing-mega));
 .header {

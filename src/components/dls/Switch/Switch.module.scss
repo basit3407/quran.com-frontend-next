@@ -40,7 +40,7 @@ $background-container-padding: calc(0.8 * var(--spacing-xxsmall));
     border-radius: var(--border-radius-xlarge-px);
 
     // This ensures the background container has the right padding regardless of position
-    &[style*="translateX(0%)"] {
+    &[style*='translateX(0%)'] {
       padding-inline-start: var(--spacing-xmicro);
       padding-inline-end: 0;
 
@@ -50,7 +50,7 @@ $background-container-padding: calc(0.8 * var(--spacing-xxsmall));
       }
     }
 
-    &[style*="translateX(100%)"] {
+    &[style*='translateX(100%)'] {
       padding-inline-start: 0;
       padding-inline-end: var(--spacing-xmicro);
       transform: translateX(calc(100% + var(--spacing-xmicro))) !important;
@@ -89,7 +89,7 @@ $background-container-padding: calc(0.8 * var(--spacing-xxsmall));
 
 .separatorLineVisible {
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     transform: translateY(75%);
     width: 1px;

@@ -8,7 +8,8 @@ A brief description for the PR.
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as
+      expected)
 - [ ] This change requires a documentation update
 
 ## Test plan
@@ -28,6 +29,6 @@ This should state how this PR have been tested.
 
 ## Screenshots or videos
 
-| Before | After |
-| ------ | ------ |
+| Before     | After      |
+| ---------- | ---------- |
 | IMAGE HERE | IMAGE HERE |

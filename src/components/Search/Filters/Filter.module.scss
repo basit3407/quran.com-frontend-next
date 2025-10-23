@@ -1,4 +1,4 @@
-@use "src/styles/breakpoints";
+@use 'src/styles/breakpoints';
 
 .dropdownLabel {
   font-weight: var(--font-weight-bold);
@@ -6,7 +6,7 @@
 }
 
 .comboboxItems {
-  div[role="dialog"] {
+  div[role='dialog'] {
     width: 82%;
     @include breakpoints.tablet {
       width: 43%;
