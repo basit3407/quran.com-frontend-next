@@ -14,7 +14,7 @@ $blocks-container-max-width: calc(25 * var(--spacing-mega));
       flex-direction: row-reverse;
     }
   }
-  width: 100%;
+  inline-size: 100%;
 }
 
 .bold {
@@ -53,7 +53,7 @@ $blocks-container-max-width: calc(25 * var(--spacing-mega));
 }
 
 .blocksContainer {
-  max-width: $blocks-container-max-width;
+  max-inline-size: $blocks-container-max-width;
 }
 
 .backLink {
@@ -70,13 +70,13 @@ $blocks-container-max-width: calc(25 * var(--spacing-mega));
     }
   }
   & > svg {
-    width: var(--spacing-medium);
+    inline-size: var(--spacing-medium);
     margin-inline-end: var(--spacing-xxsmall);
   }
 }
 
 .image {
-  max-width: 100%;
+  max-inline-size: 100%;
   border-radius: var(--border-radius-rounded);
   margin: var(--spacing-large) 0;
 }

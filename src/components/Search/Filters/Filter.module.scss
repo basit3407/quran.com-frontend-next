@@ -7,9 +7,9 @@
 
 .comboboxItems {
   div[role='dialog'] {
-    width: 82%;
+    inline-size: 82%;
     @include breakpoints.tablet {
-      width: 43%;
+      inline-size: 43%;
     }
   }
 }

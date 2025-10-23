@@ -54,13 +54,13 @@
 .verseRange {
   display: flex;
   align-items: center;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .verseRangeText {
   font-size: var(--font-size-large-px);
   font-weight: var(--font-weight-semibold);
-  width: 100%;
+  inline-size: 100%;
   @include breakpoints.smallerThanTablet {
     font-size: var(--font-size-small-px);
   }
@@ -71,7 +71,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: var(--spacing-large-px);
-  width: 100%;
+  inline-size: 100%;
   @include breakpoints.smallerThanTablet {
     gap: 0;
   }
@@ -112,7 +112,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-xsmall);
-  margin-bottom: var(--spacing-small);
+  margin-block-end: var(--spacing-small);
 }
 
 .promptsTitle {
@@ -137,7 +137,7 @@
   display: flex;
   gap: var(--spacing-small);
   align-items: center;
-  margin-top: var(--spacing-medium);
+  margin-block-start: var(--spacing-medium);
   justify-content: space-between;
   @include breakpoints.smallerThanTablet {
     gap: 0;
@@ -200,8 +200,8 @@
   border: 1px solid var(--color-blue-buttons-and-icons);
   color: var(--color-blue-buttons-and-icons);
   border-radius: 50%;
-  width: var(--spacing-medium2-px);
-  height: var(--spacing-medium2-px);
+  inline-size: var(--spacing-medium2-px);
+  block-size: var(--spacing-medium2-px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,7 +226,7 @@
 }
 
 .learnMoreLink {
-  margin-top: var(--spacing-small);
+  margin-block-start: var(--spacing-small);
 }
 
 .header {
@@ -241,5 +241,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 200px;
+  min-block-size: 200px;
 }

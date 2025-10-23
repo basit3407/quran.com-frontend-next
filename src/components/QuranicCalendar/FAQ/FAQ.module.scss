@@ -54,8 +54,8 @@
 }
 
 .questionIcon {
-  width: var(--spacing-medium2-px);
-  height: var(--spacing-medium2-px);
+  inline-size: var(--spacing-medium2-px);
+  block-size: var(--spacing-medium2-px);
 }
 
 .chevronIcon {
@@ -69,7 +69,7 @@
 .faqAnswer {
   padding: var(--spacing-medium);
   background-color: var(--color-background-alternative-faint);
-  border-top: 1px solid var(--color-borders-hairline);
+  border-block-start: 1px solid var(--color-borders-hairline);
   font-size: var(--font-size-large-px);
   border-radius: var(--border-radius-medium-px);
   @include breakpoints.smallerThanTablet {

@@ -4,6 +4,6 @@
   background-color: var(--color-background-inverse);
   color: var(--color-text-inverse);
   font-size: var(--font-size-xsmall);
-  width: fit-content;
+  inline-size: fit-content;
   padding: 0 var(--spacing-micro);
 }

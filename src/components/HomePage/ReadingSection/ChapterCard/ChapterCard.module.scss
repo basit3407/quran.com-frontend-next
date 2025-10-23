@@ -20,7 +20,7 @@
   justify-content: space-between;
   @include breakpoints.smallerThanTablet {
     align-items: center;
-    width: 100%;
+    inline-size: 100%;
   }
   @include breakpoints.tablet {
     font-size: var(--font-size-large-px);
@@ -32,14 +32,14 @@
     padding: calc(var(--spacing-small-px) + var(--spacing-micro-px)) var(--spacing-small-px)
       calc(var(--spacing-small-px) + var(--spacing-micro-px)) var(--spacing-medium-px);
   }
-  height: 100%;
+  block-size: 100%;
   box-sizing: border-box;
 }
 
 .surahContainer {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  block-size: 100%;
   justify-content: space-between;
   @include breakpoints.smallerThanTablet {
     justify-content: start;
@@ -88,8 +88,8 @@
 .continueReadingArrowIcon {
   svg {
     @include breakpoints.smallerThanTablet {
-      width: 12px !important;
-      height: 12px !important;
+      inline-size: 12px !important;
+      block-size: 12px !important;
     }
   }
 }

@@ -14,7 +14,7 @@
     font-weight: var(--font-weight-medium);
 
     @include breakpoints.smallerThanTablet {
-      min-height: 30vh;
+      min-block-size: 30vh;
     }
   }
 }

@@ -19,7 +19,7 @@ $widget-wrapper-background-color: var(--color-success-faded);
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  width: 100%;
+  inline-size: 100%;
   gap: var(--spacing-mega);
 
   @include breakpoints.desktop {
@@ -30,8 +30,8 @@ $widget-wrapper-background-color: var(--color-success-faded);
 }
 
 .illustrationContainer {
-  width: calc(5 * var(--spacing-mega));
-  height: calc(5 * var(--spacing-mega));
+  inline-size: calc(5 * var(--spacing-mega));
+  block-size: calc(5 * var(--spacing-mega));
   position: absolute;
   inset-block-end: calc(-1 * var(--spacing-medium));
   inset-inline-end: 0;

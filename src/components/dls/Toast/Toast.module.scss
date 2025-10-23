@@ -91,7 +91,7 @@
 .toastContainer {
   box-shadow: none;
   --toastify-toast-width: 480px;
-  min-height: calc(10 * var(--spacing-large));
+  min-block-size: calc(10 * var(--spacing-large));
 }
 
 .contentContainer {

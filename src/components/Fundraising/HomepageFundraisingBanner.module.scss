@@ -26,7 +26,7 @@
 .title {
   font-size: var(--font-size-normal-px);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-xsmall);
+  margin-block-end: var(--spacing-xsmall);
   color: var(--color-text-default);
   @include breakpoints.tablet {
     font-size: var(--font-size-large-px);
@@ -39,7 +39,7 @@
     font-size: var(--font-size-medium-px);
   }
   color: var(--color-text-default);
-  margin-bottom: var(--spacing-small);
+  margin-block-end: var(--spacing-small);
 }
 
 .actions {
@@ -111,8 +111,8 @@
 
 .closeButton {
   position: absolute;
-  top: var(--spacing-xsmall);
-  right: var(--spacing-xsmall);
+  inset-block-start: var(--spacing-xsmall);
+  inset-inline-end: var(--spacing-xsmall);
   color: var(--color-text-faded);
   background: none;
   border: none;
@@ -130,8 +130,8 @@
 /* Modal styles */
 .modalCloseButton {
   position: absolute;
-  top: var(--spacing-medium);
-  right: var(--spacing-medium);
+  inset-block-start: var(--spacing-medium);
+  inset-inline-end: var(--spacing-medium);
   color: var(--color-text-faded);
   background: none;
   border: none;

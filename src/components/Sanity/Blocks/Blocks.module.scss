@@ -20,7 +20,7 @@ $paragraph-line-height: 1.75rem;
 }
 
 .image {
-  max-width: 100%;
+  max-inline-size: 100%;
   border-radius: var(--border-radius-rounded);
   margin: var(--spacing-large) 0;
 }

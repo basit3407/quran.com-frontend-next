@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 400px;
+  max-inline-size: 400px;
   margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@
 .description {
   font-size: var(--font-size-normal);
   color: var(--color-text-default);
-  margin-bottom: var(--spacing-xsmall);
+  margin-block-end: var(--spacing-xsmall);
 }
 
 .email {
@@ -35,11 +35,11 @@
   font-size: var(--font-size-normal);
   color: var(--color-text-default);
   text-align: center;
-  margin-bottom: var(--spacing-medium-px);
+  margin-block-end: var(--spacing-medium-px);
 }
 
 .inputContainer {
-  margin-bottom: var(--spacing-medium-px);
+  margin-block-end: var(--spacing-medium-px);
 }
 
 .verificationContainer {
@@ -49,8 +49,8 @@
 }
 
 .character {
-  width: var(--spacing-xxlarge-px);
-  height: var(--spacing-xxlarge-px);
+  inline-size: var(--spacing-xxlarge-px);
+  block-size: var(--spacing-xxlarge-px);
   border: 1px solid var(--color-border-gray-lighter);
   border-radius: var(--border-radius-medium-px);
   font-size: var(--font-size-xlarge);
@@ -80,7 +80,7 @@
 .error {
   color: var(--color-error-medium);
   font-size: var(--font-size-small);
-  margin-top: var(--spacing-xxsmall);
+  margin-block-start: var(--spacing-xxsmall);
   text-align: center;
 }
 
@@ -88,13 +88,13 @@
   font-size: var(--font-size-medium);
   color: var(--color-text-default);
   text-align: center;
-  margin-bottom: var(--spacing-large);
+  margin-block-end: var(--spacing-large);
 }
 
 .actions {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .resendButton {

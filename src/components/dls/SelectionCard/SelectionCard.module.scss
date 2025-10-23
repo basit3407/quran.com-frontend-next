@@ -35,8 +35,8 @@ $iconSize: calc(1.5 * var(--spacing-medium));
   align-items: center;
 
   & > svg {
-    height: $iconSize;
-    width: $iconSize;
+    block-size: $iconSize;
+    inline-size: $iconSize;
     [dir='rtl'] & {
       transform: scaleX(-1);
     }

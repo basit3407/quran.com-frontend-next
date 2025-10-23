@@ -20,14 +20,14 @@
   z-index: var(--z-index-default);
   margin-inline-start: var(--spacing-xsmall);
   margin-block-start: calc(var(--spacing-xxsmall) * -1);
-  width: var(--spacing-medium);
-  height: var(--spacing-medium);
+  inline-size: var(--spacing-medium);
+  block-size: var(--spacing-medium);
   display: flex;
   align-items: center;
 }
 
 .countText {
-  width: 100%;
+  inline-size: 100%;
   text-align: center;
   font-size: var(--font-size-xsmall);
   font-weight: var(--font-weight-bold);

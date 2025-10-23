@@ -1,7 +1,7 @@
 @use 'src/styles/breakpoints';
 
 .container {
-  text-align: left !important;
+  text-align: start !important;
 }
 
 .postRamadanVerseContainer {
@@ -12,20 +12,20 @@
   text-align: justify;
   margin: auto;
   @include breakpoints.desktop {
-    width: 65%;
+    inline-size: 65%;
   }
   @include breakpoints.smallerThanDesktop {
-    width: 90%;
+    inline-size: 90%;
   }
   @include breakpoints.smallerThanTablet {
-    min-height: calc(9 * var(--spacing-mega));
+    min-block-size: calc(9 * var(--spacing-mega));
   }
-  min-height: calc(5 * var(--spacing-mega));
+  min-block-size: calc(5 * var(--spacing-mega));
 }
 
 .mainVerse {
   @include breakpoints.tablet {
-    max-width: 50%;
+    max-inline-size: 50%;
   }
 }
 .ayahLevelSettings {

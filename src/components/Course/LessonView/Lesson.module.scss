@@ -15,7 +15,7 @@
 .container {
   min-block-size: 70vh;
   @include breakpoints.desktop {
-    width: 50%;
+    inline-size: 50%;
   }
 }
 
@@ -27,7 +27,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .title {
@@ -58,7 +58,7 @@
 }
 
 .contentContainer {
-  min-height: calc(var(--spacing-mega) * 10);
+  min-block-size: calc(var(--spacing-mega) * 10);
 }
 
 .headerButtonsContainer {

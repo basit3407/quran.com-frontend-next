@@ -15,16 +15,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 125px;
+  inline-size: 125px;
   @include breakpoints.smallerThanTablet {
-    width: 85px;
+    inline-size: 85px;
   }
 }
 
 .dropdownContainer {
-  width: 750px;
+  inline-size: 750px;
   margin-inline-start: -230px;
-  margin-top: -42%;
+  margin-block-start: -42%;
   border-radius: var(--border-radius-rounded);
   box-shadow: var(--shadow-medium);
   background: var(--color-background-elevated);
@@ -32,14 +32,14 @@
   animation: slideUpFade 0.1s ease-out forwards;
 
   @include breakpoints.smallerThanTablet {
-    width: 360px;
+    inline-size: 360px;
     margin-inline-start: -160px;
-    margin-top: -35px;
+    margin-block-start: -35px;
   }
 
   hr {
     background: var(--color-borders-hairline);
-    height: 1px;
+    block-size: 1px;
     border: none;
     padding: 0;
     margin: var(--spacing-micro);

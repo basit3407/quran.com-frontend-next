@@ -13,9 +13,9 @@
     margin-block-start: constants.$reading-view-container-top-margin;
   }
   margin-block-start: var(--spacing-xsmall);
-  height: var(--skeleton-height);
+  block-size: var(--skeleton-height);
 }
 
 .fixedWidth {
-  width: var(--line-width, auto);
+  inline-size: var(--line-width, auto);
 }

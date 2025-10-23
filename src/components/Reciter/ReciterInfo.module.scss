@@ -14,8 +14,8 @@
 
 .reciterImage {
   position: absolute;
-  height: 100%;
-  width: 100%;
+  block-size: 100%;
+  inline-size: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
 }
@@ -50,8 +50,8 @@
 }
 
 .reciterImageContainer {
-  min-width: calc(5 * var(--spacing-mega));
-  min-height: calc(5 * var(--spacing-mega));
+  min-inline-size: calc(5 * var(--spacing-mega));
+  min-block-size: calc(5 * var(--spacing-mega));
   background-color: var(--color-background-alternative-deep);
   border-radius: var(--border-radius-circle);
   margin-inline-end: var(--spacing-medium);
@@ -77,8 +77,8 @@
   }
 }
 .playButton {
-  width: 100%;
+  inline-size: 100%;
   @include breakpoints.tablet {
-    width: auto;
+    inline-size: auto;
   }
 }

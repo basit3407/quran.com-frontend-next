@@ -13,11 +13,11 @@
 }
 
 .modalContent {
-  max-width: 100%;
+  max-inline-size: 100%;
   padding-block-start: var(--spacing-small-px);
 
   p {
-    margin-bottom: var(--spacing-small-px);
+    margin-block-end: var(--spacing-small-px);
     font-size: var(--font-medium-small);
   }
 }

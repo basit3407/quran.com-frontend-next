@@ -23,7 +23,7 @@
   }
   gap: var(--spacing-medium);
   justify-content: space-between;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .ramadanTitle {
@@ -63,15 +63,15 @@
 
 .coloredIcon {
   @include breakpoints.smallerThanTablet {
-    width: var(--spacing-medium2-px) !important;
-    height: var(--spacing-medium2-px) !important;
+    inline-size: var(--spacing-medium2-px) !important;
+    block-size: var(--spacing-medium2-px) !important;
   }
 }
 
 .logoIcon {
   @include breakpoints.smallerThanTablet {
-    height: 14px !important;
-    width: 83px !important;
+    block-size: 14px !important;
+    inline-size: 83px !important;
   }
 }
 .cardContent {
@@ -83,17 +83,17 @@
   }
 
   justify-content: space-between;
-  height: 100%;
+  block-size: 100%;
 }
 
 .card {
-  height: 100%;
+  block-size: 100%;
 }
 
 .link {
-  width: 50%;
+  inline-size: 50%;
   @include breakpoints.smallerThanTablet {
-    width: 100%;
+    inline-size: 100%;
   }
   display: flex;
   flex-direction: column;
@@ -111,8 +111,8 @@
 .arrowIcon {
   svg {
     @include breakpoints.smallerThanTablet {
-      width: 12px !important;
-      height: 12px !important;
+      inline-size: 12px !important;
+      block-size: 12px !important;
     }
   }
 }

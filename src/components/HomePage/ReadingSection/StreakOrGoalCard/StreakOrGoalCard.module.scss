@@ -1,7 +1,7 @@
 @use 'src/styles/breakpoints';
 
 .streakCard {
-  width: 100%;
+  inline-size: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,15 +25,15 @@
     padding-inline-start: var(--spacing-small-px);
     padding-inline-end: var(--spacing-small-px);
 
-    width: var(--spacing-medium2-px);
-    height: var(--spacing-medium2-px);
+    inline-size: var(--spacing-medium2-px);
+    block-size: var(--spacing-medium2-px);
     @include breakpoints.tablet {
-      width: var(--spacing-large-px);
-      height: var(--spacing-large-px);
+      inline-size: var(--spacing-large-px);
+      block-size: var(--spacing-large-px);
       padding-inline-start: var(--spacing-medium-px);
       padding-inline-end: var(--spacing-medium2-px);
-      width: 60px;
-      height: 60px;
+      inline-size: 60px;
+      block-size: 60px;
     }
   }
 }
@@ -56,8 +56,8 @@
 }
 
 .circularProgressbar {
-  height: 60px;
-  width: 60px;
+  block-size: 60px;
+  inline-size: 60px;
 }
 
 .circularProgressbarContainer {
@@ -100,8 +100,8 @@
 .goalArrowIcon {
   svg {
     @include breakpoints.smallerThanTablet {
-      width: 12px !important;
-      height: 12px !important;
+      inline-size: 12px !important;
+      block-size: 12px !important;
     }
   }
 }

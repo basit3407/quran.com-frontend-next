@@ -4,7 +4,7 @@
   align-items: flex-start;
   gap: calc(var(--spacing-max) / 2);
   justify-content: center;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .shareOptionButton {
@@ -20,24 +20,24 @@
   span {
     font-size: var(--font-size-xsmall);
     color: var(--color-text-default);
-    max-width: fit-content;
+    max-inline-size: fit-content;
   }
 }
 
 .generateMediaButton {
   span {
-    max-width: min-content;
+    max-inline-size: min-content;
   }
 }
 
 .socialIcon {
-  width: var(--spacing-xlarge-px);
-  height: var(--spacing-xlarge-px);
+  inline-size: var(--spacing-xlarge-px);
+  block-size: var(--spacing-xlarge-px);
 }
 
 .utilityIconWrapper {
-  width: var(--spacing-xlarge-px);
-  height: var(--spacing-xlarge-px);
+  inline-size: var(--spacing-xlarge-px);
+  block-size: var(--spacing-xlarge-px);
   background-color: var(--color-background-alternative);
   border-radius: var(--border-radius-circle);
   display: flex;

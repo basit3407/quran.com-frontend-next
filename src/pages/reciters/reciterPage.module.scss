@@ -19,11 +19,11 @@
 }
 
 .chaptersListContainer {
-  min-height: calc(25 * var(--spacing-mega));
+  min-block-size: calc(25 * var(--spacing-mega));
 }
 
 .recitersListContainer {
-  min-height: calc(22 * var(--spacing-mega));
+  min-block-size: calc(22 * var(--spacing-mega));
 }
 
 .reciterInfoContainer {

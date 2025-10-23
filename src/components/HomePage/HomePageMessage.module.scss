@@ -35,7 +35,7 @@
   margin-block-end: var(--spacing-medium);
 
   & > svg {
-    height: var(--spacing-small);
+    block-size: var(--spacing-small);
     path {
       fill: var(--color-text-faded);
     }

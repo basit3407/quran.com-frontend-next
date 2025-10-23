@@ -3,8 +3,8 @@ $baseSize: var(--spacing-mega);
 $animationDuration: 8s;
 
 .baseSize {
-  height: $baseSize;
-  width: $baseSize;
+  block-size: $baseSize;
+  inline-size: $baseSize;
 }
 
 .skeleton {

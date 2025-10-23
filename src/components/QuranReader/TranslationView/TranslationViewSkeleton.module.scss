@@ -7,17 +7,17 @@
 }
 
 .verseContainer {
-  height: calc(1.7 * var(--font-size));
+  block-size: calc(1.7 * var(--font-size));
 }
 
 .translationText {
   display: inline-flex;
-  width: auto;
+  inline-size: auto;
 }
 
 .translationAuthor {
   display: inline-flex;
-  width: auto;
+  inline-size: auto;
   margin-block-start: var(--spacing-micro);
   font-size: var(--font-size-xsmall);
 }

@@ -3,7 +3,7 @@
 
 .container {
   position: relative;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .backgroundImage {
@@ -14,8 +14,8 @@
   overflow: hidden;
 
   svg {
-    width: 100%;
-    height: auto;
+    inline-size: 100%;
+    block-size: auto;
     object-fit: cover;
     object-position: center top;
     transform: translateY(-40%);
@@ -23,7 +23,7 @@
 }
 
 .content {
-  max-width: 1230px;
+  max-inline-size: 1230px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -39,8 +39,8 @@
 
 .textContent {
   flex: 1;
-  max-width: 875px;
-  width: 100%;
+  max-inline-size: 875px;
+  inline-size: 100%;
 }
 
 .title {
@@ -52,13 +52,13 @@
   }
   font-weight: var(--font-weight-extra-bold);
   color: var(--color-text-default-new);
-  margin-bottom: var(--spacing-small);
+  margin-block-end: var(--spacing-small);
 }
 
 .description {
   font-size: var(--font-size-large-px);
   color: var(--color-text-default-new);
-  margin-bottom: var(--spacing-medium);
+  margin-block-end: var(--spacing-medium);
   @include breakpoints.smallerThanTablet {
     font-size: var(--font-size-small-px);
   }
@@ -72,7 +72,7 @@
 
   @include breakpoints.smallerThanTablet {
     flex-direction: column;
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
@@ -166,10 +166,10 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-top: var(--spacing-medium);
+  inline-size: 100%;
+  margin-block-start: var(--spacing-medium);
 }
 
 .subscribeButton {
-  width: 100%;
+  inline-size: 100%;
 }

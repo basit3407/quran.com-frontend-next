@@ -4,13 +4,13 @@
 $container-width: 370px;
 
 .outerContainer {
-  min-height: 100vh;
+  min-block-size: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin-inline: auto;
-  max-width: $container-width;
+  max-inline-size: $container-width;
   padding-block: calc(var(--spacing-xsmall) * 3);
   box-sizing: border-box;
 
@@ -24,7 +24,7 @@ $container-width: 370px;
 }
 
 .innerContainer {
-  width: 100%;
+  inline-size: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -34,7 +34,7 @@ $container-width: 370px;
   font-size: var(--font-size-xlarge);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-default);
-  margin-bottom: var(--spacing-large);
+  margin-block-end: var(--spacing-large);
   text-align: center;
 }
 
@@ -43,20 +43,20 @@ $container-width: 370px;
   color: var(--color-text-default);
   text-align: center;
   margin: 0;
-  margin-bottom: var(--spacing-medium3-px);
+  margin-block-end: var(--spacing-medium3-px);
   line-height: 1.5;
 }
 
 .formContainer {
-  width: 90%;
+  inline-size: 90%;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-large);
-  margin-top: var(--spacing-large);
+  margin-block-start: var(--spacing-large);
 
   input {
     border: none;
-    width: 90%;
+    inline-size: 90%;
     background: transparent;
     color: var(--color-text-default);
 
@@ -71,7 +71,7 @@ $container-width: 370px;
 }
 
 .submitButton {
-  width: 90%;
+  inline-size: 90%;
   padding: var(--spacing-medium);
   font-size: var(--font-size-normal);
   font-weight: var(--font-weight-bold);
@@ -81,7 +81,7 @@ $container-width: 370px;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  margin-top: var(--spacing-medium);
+  margin-block-start: var(--spacing-medium);
 
   &:hover {
     background-color: var(--color-success-dark);
@@ -89,7 +89,7 @@ $container-width: 370px;
 }
 
 .backButton {
-  width: 50%;
+  inline-size: 50%;
   margin-block: var(--spacing-medium);
   border-radius: var(--border-radius-pill);
 }

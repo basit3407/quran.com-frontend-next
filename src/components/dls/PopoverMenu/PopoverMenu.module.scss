@@ -53,7 +53,7 @@ $separator-size: 1px;
   padding-block-end: var(--spacing-small);
   padding-inline-start: 0;
   padding-inline-end: 0;
-  min-width: $min-width;
+  min-inline-size: $min-width;
   background-color: var(--color-background-elevated);
   border-radius: var(--border-radius-rounded);
   box-shadow: var(--shadow-large);
@@ -112,18 +112,18 @@ $separator-size: 1px;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: var(--spacing-medium);
-    width: var(--spacing-medium);
+    block-size: var(--spacing-medium);
+    inline-size: var(--spacing-medium);
 
     svg {
-      width: 100%;
-      height: 100%;
+      inline-size: 100%;
+      block-size: 100%;
     }
   }
 }
 
 .separator {
-  height: $separator-size;
+  block-size: $separator-size;
   background-color: var(--color-secondary-faded);
   margin-block-start: var(--spacing-xxsmall);
   margin-block-end: var(--spacing-xxsmall);

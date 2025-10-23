@@ -1,6 +1,6 @@
 .section {
-  margin-bottom: var(--spacing-xxlarge);
-  padding-top: var(--spacing-medium);
+  margin-block-end: var(--spacing-xxlarge);
+  padding-block-start: var(--spacing-medium);
 }
 
 .section:first-child {
