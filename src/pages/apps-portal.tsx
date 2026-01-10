@@ -32,6 +32,7 @@ interface FeaturedApp extends AppLinks {
   description: string;
   iconSrc: string;
   iconAlt: string;
+  background?: string;
 }
 
 interface AppTile extends AppLinks {
@@ -42,6 +43,8 @@ interface AppTile extends AppLinks {
   iconAlt: string;
   categories: AppCategory[];
   tagline?: string;
+  caption?: string;
+  visual?: string;
 }
 
 type AppCategory =
@@ -115,7 +118,6 @@ const VisitBadge: FC<{ label: string }> = ({ label }) => (
     </text>
   </svg>
 );
-
 const DEBOUNCE_DELAY = 1000;
 
 const getFeaturedApps = (t: (key: string) => string): FeaturedApp[] => [
@@ -124,6 +126,7 @@ const getFeaturedApps = (t: (key: string) => string): FeaturedApp[] => [
     name: t('featured.apps.qariah.name'),
     tagline: t('featured.apps.qariah.tagline'),
     description: t('featured.apps.qariah.headline'),
+    background: "url('/images/app-portal/featured/qaariah-pic.jpg')",
     iconSrc: '/images/app-portal/featured/qaariah-icon.webp',
     iconAlt: 'Qariah – women Quran reciters app',
     webHref: 'https://www.qariah.app/',
@@ -135,6 +138,7 @@ const getFeaturedApps = (t: (key: string) => string): FeaturedApp[] => [
     name: t('featured.apps.quran-kareem.name'),
     tagline: t('featured.apps.quran-kareem.tagline'),
     description: t('featured.apps.quran-kareem.headline'),
+    background: "url('/images/app-portal/featured/quran_kareem-pic.webp')",
     iconSrc: '/images/app-portal/featured/quran_kareem-icon.png',
     iconAlt: 'Quran Kareem app',
     iosHref:
@@ -145,6 +149,7 @@ const getFeaturedApps = (t: (key: string) => string): FeaturedApp[] => [
     name: t('featured.apps.quran-link.name'),
     tagline: t('featured.apps.quran-link.tagline'),
     description: t('featured.apps.quran-link.headline'),
+    background: "url('/images/app-portal/featured/QuranLink-pic.png')",
     iconSrc: '/images/app-portal/featured/QuranLink-icon.png',
     iconAlt: 'Quran Link app',
     iosHref:
@@ -164,12 +169,16 @@ const getFilters = (t: (key: string) => string): FilterChip[] => [
   { label: t('browse.filters.hadith-sunnah'), value: 'hadith-sunnah' },
 ];
 
-const getAppTiles = (t: (key: string) => string): AppTile[] => [
+const getAppTiles = (t: (key: string) => string, useExtendedCopy: boolean): AppTile[] => [
   {
     id: 'quran_android',
     title: t('browse.apps.quran_android.title'),
-    description: t('browse.apps.quran_android.description'),
-    tagline: t('browse.apps.quran_android.tagline'),
+    description: useExtendedCopy
+      ? t('browse.apps.quran_android.description')
+      : t('browse.apps.quran_android.caption'),
+    tagline: useExtendedCopy ? t('browse.apps.quran_android.tagline') : undefined,
+    caption: t('browse.apps.quran_android.caption'),
+    visual: "url('/images/app-portal/qdc-android.png')",
     iconSrc: '/images/app-portal/qdc-android-logo.webp',
     iconAlt: 'Quran for Android',
     androidHref: 'https://play.google.com/store/apps/details?id=com.quran.labs.androidquran',
@@ -178,8 +187,12 @@ const getAppTiles = (t: (key: string) => string): AppTile[] => [
   {
     id: 'quran_ios',
     title: t('browse.apps.quran_ios.title'),
-    description: t('browse.apps.quran_ios.description'),
-    tagline: t('browse.apps.quran_ios.tagline'),
+    description: useExtendedCopy
+      ? t('browse.apps.quran_ios.description')
+      : t('browse.apps.quran_ios.caption'),
+    tagline: useExtendedCopy ? t('browse.apps.quran_ios.tagline') : undefined,
+    caption: t('browse.apps.quran_ios.caption'),
+    visual: "url('/images/app-portal/qdc-ios.png')",
     iconSrc: '/images/app-portal/qdc-ios-logo.webp',
     iconAlt: 'Quran for iOS',
     iosHref:
@@ -189,8 +202,12 @@ const getAppTiles = (t: (key: string) => string): AppTile[] => [
   {
     id: 'quranreflect',
     title: t('browse.apps.quranreflect.title'),
-    description: t('browse.apps.quranreflect.description'),
-    tagline: t('browse.apps.quranreflect.tagline'),
+    description: useExtendedCopy
+      ? t('browse.apps.quranreflect.description')
+      : t('browse.apps.quranreflect.caption'),
+    tagline: useExtendedCopy ? t('browse.apps.quranreflect.tagline') : undefined,
+    caption: t('browse.apps.quranreflect.caption'),
+    visual: "url('/images/app-portal/qr_web_optimized.png')",
     iconSrc: '/images/app-portal/icon_web_optimized.png',
     iconAlt: 'QuranReflect',
     webHref: 'https://quranreflect.com',
@@ -202,8 +219,12 @@ const getAppTiles = (t: (key: string) => string): AppTile[] => [
   {
     id: 'sunnah',
     title: t('browse.apps.sunnah.title'),
-    description: t('browse.apps.sunnah.description'),
-    tagline: t('browse.apps.sunnah.tagline'),
+    description: useExtendedCopy
+      ? t('browse.apps.sunnah.description')
+      : t('browse.apps.sunnah.caption'),
+    tagline: useExtendedCopy ? t('browse.apps.sunnah.tagline') : undefined,
+    caption: t('browse.apps.sunnah.caption'),
+    visual: "url('/images/app-portal/hadith_banner_web_optimized.jpg')",
     iconSrc: '/images/app-portal/sunnah_icon_web_optimized.png',
     iconAlt: 'Sunnah.com',
     webHref: 'https://sunnah.com',
@@ -212,8 +233,12 @@ const getAppTiles = (t: (key: string) => string): AppTile[] => [
   {
     id: 'readtafsir',
     title: t('browse.apps.readtafsir.title'),
-    description: t('browse.apps.readtafsir.description'),
-    tagline: t('browse.apps.readtafsir.tagline'),
+    description: useExtendedCopy
+      ? t('browse.apps.readtafsir.description')
+      : t('browse.apps.readtafsir.caption'),
+    tagline: useExtendedCopy ? t('browse.apps.readtafsir.tagline') : undefined,
+    caption: t('browse.apps.readtafsir.caption'),
+    visual: "url('/images/app-portal/readtafsir_app_pic.png')",
     iconSrc: '/images/app-portal/readtafsir_app_icon.png',
     iconAlt: 'ReadTafsir',
     webHref: 'https://read.tafsir.one/',
@@ -225,8 +250,12 @@ const getAppTiles = (t: (key: string) => string): AppTile[] => [
   {
     id: 'tafsirapp',
     title: t('browse.apps.tafsirapp.title'),
-    description: t('browse.apps.tafsirapp.description'),
-    tagline: t('browse.apps.tafsirapp.tagline'),
+    description: useExtendedCopy
+      ? t('browse.apps.tafsirapp.description')
+      : t('browse.apps.tafsirapp.caption'),
+    tagline: useExtendedCopy ? t('browse.apps.tafsirapp.tagline') : undefined,
+    caption: t('browse.apps.tafsirapp.caption'),
+    visual: "url('/images/app-portal/tafsir.app-pic.png')",
     iconSrc: '/images/app-portal/tafsir_app_icon.png',
     iconAlt: 'Tafsir App',
     webHref: 'https://tafsir.app/',
@@ -238,8 +267,12 @@ const getAppTiles = (t: (key: string) => string): AppTile[] => [
   {
     id: 'muhaffidh',
     title: t('browse.apps.muhaffidh.title'),
-    description: t('browse.apps.muhaffidh.description'),
-    tagline: t('browse.apps.muhaffidh.tagline'),
+    description: useExtendedCopy
+      ? t('browse.apps.muhaffidh.description')
+      : t('browse.apps.muhaffidh.caption'),
+    tagline: useExtendedCopy ? t('browse.apps.muhaffidh.tagline') : undefined,
+    caption: t('browse.apps.muhaffidh.caption'),
+    visual: "url('/images/app-portal/muhaffidh_app_pic.png')",
     iconSrc: '/images/app-portal/muhaffidh_app_icon.png',
     iconAlt: 'Muhaffidh App',
     webHref: 'https://muhaffidh.app/',
@@ -373,9 +406,11 @@ const AppCtaRow: FC<AppCtaRowProps> = ({
     </div>
   );
 };
-
 const FeaturedCard: FC<{ app: FeaturedApp; ctaLabels: AppCtaLabels }> = ({ app, ctaLabels }) => (
   <article className={styles.featuredCard}>
+    {app.background && (
+      <div className={styles.cardVisual} style={{ backgroundImage: app.background }} />
+    )}
     <div className={styles.cardBody}>
       <div className={styles.appMeta}>
         <span className={styles.appIcon} aria-hidden="true">
@@ -432,6 +467,7 @@ const FeaturedApps: FC<FeaturedAppsProps> = ({ title, viewAllText, apps, ctaLabe
 
 const AppTileCard: FC<{ app: AppTile; ctaLabels: AppCtaLabels }> = ({ app, ctaLabels }) => (
   <article className={styles.appCard}>
+    {app.visual && <div className={styles.appVisual} style={{ backgroundImage: app.visual }} />}
     <div className={styles.cardBody}>
       <div className={styles.appMeta}>
         <span className={styles.appIcon} aria-hidden="true">
@@ -540,7 +576,9 @@ const BrowseApps: FC<BrowseAppsProps> = ({
       const matchesSearch =
         normalizedQuery.length === 0 ||
         app.title.toLowerCase().includes(normalizedQuery) ||
-        app.description.toLowerCase().includes(normalizedQuery);
+        app.description.toLowerCase().includes(normalizedQuery) ||
+        (app.tagline ? app.tagline.toLowerCase().includes(normalizedQuery) : false) ||
+        (app.caption ? app.caption.toLowerCase().includes(normalizedQuery) : false);
 
       return matchesFilter && matchesSearch;
     });
@@ -583,7 +621,7 @@ const AppPortalPage: NextPage = () => {
   const { t: tCommon } = useTranslation('common');
 
   const featuredApps = useMemo(() => getFeaturedApps(t), [t]);
-  const appTiles = useMemo(() => getAppTiles(t), [t]);
+  const appTiles = useMemo(() => getAppTiles(t, lang === 'en'), [t, lang]);
   const ctaLabels = useMemo(
     () => ({
       playStoreAlt: t('cta.google-play'),

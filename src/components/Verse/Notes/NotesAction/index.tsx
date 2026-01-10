@@ -10,8 +10,7 @@ import useCountRangeNotes from '@/hooks/auth/useCountRangeNotes';
 import useSafeTimeout from '@/hooks/useSafeTimeout';
 import NotesIcon from '@/icons/notes-filled.svg';
 import NotesFilledIcon from '@/icons/notes-with-pencil-filled.svg';
-import { logErrorToSentry } from '@/lib/sentry';
-import { WordVerse } from '@/types/Word';
+import Verse from '@/types/Verse';
 import { isLoggedIn } from '@/utils/auth/login';
 import { logButtonClick, logEvent } from '@/utils/eventLogger';
 import { getChapterWithStartingVerseUrl, getLoginNavigationUrl } from '@/utils/navigation';
@@ -19,7 +18,7 @@ import AudioPlayerEventType from '@/xstate/actors/audioPlayer/types/AudioPlayerE
 import { AudioPlayerMachineContext } from '@/xstate/AudioPlayerMachineContext';
 
 type Props = {
-  verse: WordVerse;
+  verse: Verse;
   onActionTriggered?: () => void;
 };
 
@@ -41,8 +40,7 @@ const NotesAction: React.FC<Props> = ({ verse, onActionTriggered }) => {
 
       try {
         router.push(getLoginNavigationUrl(getChapterWithStartingVerseUrl(verse.verseKey)));
-      } catch (e) {
-        logErrorToSentry(e);
+      } catch {
         // If there's an error parsing the verseKey, navigate to chapter 1
         router.push(getLoginNavigationUrl('/1'));
       }

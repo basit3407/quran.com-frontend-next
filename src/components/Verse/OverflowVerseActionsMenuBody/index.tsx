@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import SaveToCollectionAction from '../SaveToCollectionAction';
-import TranslationFeedbackAction from '../TranslationFeedback/TranslationFeedbackAction';
 import VerseActionAdvancedCopy from '../VerseActionAdvancedCopy';
 import VerseActionRepeatAudio from '../VerseActionRepeatAudio';
 
@@ -9,11 +8,11 @@ import ShareVerseActionsMenu from './ShareVerseActionsMenu';
 
 import VerseActionsMenuType from '@/components/QuranReader/ReadingView/WordActionsMenu/types';
 import WordByWordVerseAction from '@/components/QuranReader/ReadingView/WordByWordVerseAction';
-import { WordVerse } from '@/types/Word';
 import { isLoggedIn } from '@/utils/auth/login';
+import Verse from 'types/Verse';
 
 interface Props {
-  verse: WordVerse;
+  verse: Verse;
   isTranslationView: boolean;
   onActionTriggered?: () => void;
   bookmarksRangeUrl: string;
@@ -43,11 +42,6 @@ const OverflowVerseActionsMenuBody: React.FC<Props> = ({
       />
       <WordByWordVerseAction verse={verse} onActionTriggered={onActionTriggered} />
       <VerseActionRepeatAudio isTranslationView={isTranslationView} verseKey={verse.verseKey} />
-      <TranslationFeedbackAction
-        verse={verse}
-        isTranslationView={isTranslationView}
-        onActionTriggered={onActionTriggered}
-      />
     </div>
   ) : (
     <ShareVerseActionsMenu

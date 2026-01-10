@@ -7,7 +7,7 @@
       "data-sync": {
         "action": "Próximo",
         "description": "Ya sea que uses Quran.com en tu teléfono o en tu computadora portátil, tus marcadores, los últimos versículos leídos y tus preferencias estarán disponibles.",
-        "title": "Sus datos se sincronizarán <br></br> en todos los dispositivos"
+        "title": "Sus datos se sincronizarán <br> </br> en todos los dispositivos"
       },
       "feedback": {
         "action": "Está bien, lo entiendo.",
@@ -44,7 +44,8 @@
     "nav-drawer-open": "Abrir la ventana de navegación desplegable.",
     "play-surah": "Reproducir Sura {{surahName}}",
     "select-lng": "Seleccione idioma",
-    "sidebar-nav-close": "Cerrar barra lateral de navegación"
+    "sidebar-nav-close": "Cerrar barra lateral de navegación",
+    "translation-info": "Ver información de traducción"
   },
   "audio": {
     "auto-scroll": {
@@ -100,6 +101,7 @@
   "bookmarked": "Marcado como favorito",
   "both": "Ambas",
   "cancel": "Cancelar",
+  "change-theme": "Cambiar tema",
   "click-here": "Haz clic aquí",
   "close": "Cerrar",
   "command-bar": {
@@ -125,7 +127,7 @@
   },
   "consents": {
     "communication": {
-      "body": "🚀 Potencia tu progreso a través de notificaciones <boldSpan> personalizadas </boldSpan> sobre el progreso de tus objetivos, el mantenimiento de las rachas y la mejora del uso de nuestras funciones actuales. <br></br> <br></br> ¿Podemos mantenerte informado a través del correo electrónico y otros canales? Tú tienes el control: puedes ajustar estas preferencias en cualquier momento en la configuración de tu cuenta. <br></br> <br></br> Simplemente selecciona \"Permitir\" para recibir <boldSpan> recordatorios inspiradores </boldSpan> o \"Ahora no\" para rechazarlos.",
+      "body": "🚀 Potencia tu progreso a través de notificaciones <boldSpan> personalizadas </boldSpan> sobre el progreso de tus objetivos, el mantenimiento de las rachas y la mejora del uso de nuestras funciones actuales. <br></br> <br></br> ¿Podemos mantenerte informado a través del correo electrónico y otros canales? Tú tienes el control: puedes ajustar estas preferencias en cualquier momento en la configuración de tu cuenta. <br></br> <br></br> Simplemente selecciona \\\"Permitir\\\" para recibir <boldSpan> recordatorios inspiradores </boldSpan> o \\\"Ahora no\\\" para rechazarlos.",
       "header": "¡Nos encantaría ayudar a mantenerte <boldSpan> comprometido y constante </boldSpan> en tu viaje de crecimiento del Corán! 📖🌟"
     }
   },
@@ -139,6 +141,7 @@
     "decrease": "Disminuir",
     "increase": "Aumentar"
   },
+  "create-my-goal": "Crea mi meta",
   "default-description": "El Corán traducido a muchos idiomas en una interfaz sencilla y fácil de usar",
   "delete": "Borrar",
   "developers": "Desarrolladores",
@@ -162,6 +165,7 @@
     "bookmark-sync": "El marcador no está sincronizado.",
     "email-login-fail": "No se pudo iniciar sesión con el correo electrónico. Inténtalo nuevamente.",
     "general": "Algo salió mal. Inténtalo de nuevo.",
+    "language-change-failed": "No se pudo cambiar el idioma. Inténtalo de nuevo.",
     "offline": "Parece que perdiste la conexión. Verifícala y vuelve a intentarlo.",
     "pref-persist-fail": "No se pudo sincronizar tu configuración a la nube.",
     "ranges-no-value": "La secuencia de inicio y final deben tener un valor",
@@ -244,6 +248,10 @@
   },
   "fundraising": {
     "description": "Las donaciones mensuales nos ayudan a mejorar Quran.com y sostener las operaciones para que nos centremos menos en la recaudación de fondos y más en crear impacto.",
+    "donation-campaign": {
+      "cta": "Dona hoy",
+      "text": "Hazte simpatizante"
+    },
     "title": "Conviértete en donante mensual"
   },
   "get-started": "Empezar",
@@ -259,6 +267,7 @@
   "juz": "Juz",
   "language": "Idioma",
   "languages": "Idiomas",
+  "learn": "Aprender",
   "learn-more": "Más información",
   "learning-plans": "Planes de aprendizaje",
   "less": "Menos",
@@ -275,6 +284,7 @@
   "mode": "Modo",
   "more": "Más",
   "my-learning-plans": "Mis planes de aprendizaje",
+  "my-quran": "Mi Corán",
   "navigate": "Navegar",
   "network": "Comunidad",
   "new": "¡Nuevo!",
@@ -327,6 +337,7 @@
   "q-reflect": "QuranReflect",
   "quran-com": "Quran.com",
   "quran-radio": "Radio Coránica",
+  "read": "Leer",
   "reading-history": "Historial de lectura",
   "reading-preference": {
     "reading": "Lectura",
@@ -366,6 +377,7 @@
   },
   "seconds": "Segundos",
   "see-new": "Mira que hay de nuevo.",
+  "select-language": "Seleccionar idioma",
   "settings": {
     "no-tafsir-selected": "No se ha seleccionado ningún tafsir",
     "no-translation-selected": "No se ha seleccionado ninguna traducción",
@@ -409,6 +421,7 @@
     "by": "Ordenar por",
     "descending": "Descendiente"
   },
+  "stay-on-track": "¡Manténgase en el buen camino!",
   "style": "Estilo",
   "submit": "Enviar",
   "subscribe": "Suscribirse.",

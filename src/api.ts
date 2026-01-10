@@ -28,7 +28,7 @@ import {
   makeNewSearchResultsUrl,
   makeByRangeVersesUrl,
   makeWordByWordTranslationsUrl,
-  makeCountryLanguagePreferenceUrl,
+  makeChapterMetadataUrl,
 } from '@/utils/apiPaths';
 import { getAdditionalHeaders } from '@/utils/headers';
 import { AdvancedCopyRequest, PagesLookUpRequest } from 'types/ApiRequests';
@@ -42,13 +42,13 @@ import {
   TafsirsResponse,
   VersesResponse,
   ChapterInfoResponse,
+  ChapterMetadataResponse,
   FootnoteResponse,
   ChapterResponse,
   ReciterResponse,
   TafsirContentResponse,
   PagesLookUpResponse,
   WordByWordTranslationsResponse,
-  CountryLanguagePreferenceResponse,
 } from 'types/ApiResponses';
 import AudioData from 'types/AudioData';
 
@@ -251,19 +251,6 @@ export const getTafsirs = async (language: string): Promise<TafsirsResponse> =>
   fetcher(makeTafsirsUrl(language));
 
 /**
- * Get country language preference data.
- *
- * @param {string} userDeviceLanguage the user's device language code
- * @param {string} country the two-letter country code
- * @returns {Promise<CountryLanguagePreferenceResponse>}
- */
-export const getCountryLanguagePreference = async (
-  userDeviceLanguage: string,
-  country: string,
-): Promise<CountryLanguagePreferenceResponse> =>
-  fetcher(makeCountryLanguagePreferenceUrl(userDeviceLanguage, country));
-
-/**
  * Get a chapter's info
  *
  * @param {string} chapterId
@@ -274,6 +261,18 @@ export const getChapterInfo = async (
   chapterId: string,
   language: string,
 ): Promise<ChapterInfoResponse> => fetcher(makeChapterInfoUrl(chapterId, language));
+
+/**
+ * Get chapter metadata including suggestions and next/previous summaries.
+ *
+ * @param {string} chapterId
+ * @param {string} language
+ * @returns {Promise<ChapterMetadataResponse>}
+ */
+export const getChapterMetadata = async (
+  chapterId: string,
+  language: string,
+): Promise<ChapterMetadataResponse> => fetcher(makeChapterMetadataUrl(chapterId, language));
 
 /**
  * Get a chapter's.

@@ -185,6 +185,22 @@ test.describe('Audio Player Advanced Behaviour', () => {
     await expect(page.getByTestId('listen-button')).toBeVisible();
   });
 
+  test('Closing the audio player removes verse highlighting', async ({ page }) => {
+    await audioUtilities.startAudioPlayback(true);
+    await audioUtilities.setAudioTime(0);
+
+    // Verify highlighting is present while playing
+    const firstAyah = page.getByTestId('verse-1:1');
+    await expect(firstAyah).toHaveClass(/highlighted/);
+
+    // Close the audio player
+    await page.getByTestId('audio-close-player').click();
+    await expect(page.getByTestId('audio-player-body')).not.toBeVisible();
+
+    // Verify highlighting is removed after closing
+    await expect(firstAyah).not.toHaveClass(/highlighted/);
+  });
+
   test('Playback rate menu changes speed and persists selection UI', async ({ page }) => {
     await audioUtilities.startAudioPlayback();
 

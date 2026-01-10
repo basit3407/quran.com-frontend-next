@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { useOnboarding } from '@/components/Onboarding/OnboardingProvider';
 import useScrollDirection, { ScrollDirection } from '@/hooks/useScrollDirection';
-import { selectNavbar, setIsVisible } from '@/redux/slices/navbar';
+import { setIsVisible, selectNavbar } from '@/redux/slices/navbar';
 import {
   setIsExpanded,
   setShowReadingPreferenceSwitcher,

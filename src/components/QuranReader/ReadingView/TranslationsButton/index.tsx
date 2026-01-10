@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 
 import classNames from 'classnames';
 import dynamic from 'next/dynamic';
@@ -17,18 +17,18 @@ import TranslationsIcon from '@/icons/translation.svg';
 import { selectQuranReaderStyles } from '@/redux/slices/QuranReader/styles';
 import { selectSelectedTranslations } from '@/redux/slices/QuranReader/translations';
 import ZIndexVariant from '@/types/enums/ZIndexVariant';
-import { WordVerse } from '@/types/Word';
 import { getDefaultWordFields, getMushafId } from '@/utils/api';
 import { makeByVerseKeyUrl } from '@/utils/apiPaths';
 import { logButtonClick, logEvent } from '@/utils/eventLogger';
 import { VerseResponse } from 'types/ApiResponses';
+import Verse from 'types/Verse';
 
 const ContentModal = dynamic(() => import('@/dls/ContentModal/ContentModal'), {
   ssr: false,
 });
 
 interface Props {
-  verse: WordVerse;
+  verse: Verse;
   onActionTriggered?: () => void;
   isTranslationView: boolean;
 }
@@ -41,7 +41,6 @@ const TranslationsButton: React.FC<Props> = ({ verse, onActionTriggered, isTrans
   const selectedTranslations = useSelector(selectSelectedTranslations);
   const quranReaderStyles = useSelector(selectQuranReaderStyles);
   const contentModalRef = useRef<ContentModalHandles>();
-  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const translationsQueryKey = makeByVerseKeyUrl(`${verse.chapterId}:${verse.verseNumber}`, {
     words: true,
     translationFields: 'resource_name,language_id',
@@ -69,24 +68,13 @@ const TranslationsButton: React.FC<Props> = ({ verse, onActionTriggered, isTrans
   const onModalClosed = () => {
     logEvent(`${isTranslationView ? 'translation_view' : 'reading_view'}_translations_modal_close`);
     setIsContentModalOpen(false);
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-    }
-    closeTimeoutRef.current = setTimeout(() => {
+    setTimeout(() => {
       // we set a really short timeout to close the popover after the modal has been closed to allow enough time for the fadeout css effect to apply.
       onActionTriggered?.();
     }, CLOSE_POPOVER_AFTER_MS);
   };
 
   const loading = useCallback(() => <TranslationViewCellSkeleton hasActionMenuItems={false} />, []);
-
-  useEffect(() => {
-    return () => {
-      if (closeTimeoutRef.current) {
-        clearTimeout(closeTimeoutRef.current);
-      }
-    };
-  }, []);
 
   return (
     <>
