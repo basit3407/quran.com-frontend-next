@@ -50,6 +50,13 @@ export const makeCompleteAnnouncementUrl = (): string => makeUrl('users/complete
 
 export const makeDeleteAccountUrl = (): string => makeUrl('users/deleteAccount');
 
+export const makeConnectedAppsUrl = (): string => makeUrl('users/connected-apps');
+
+export const makeConnectedAppLifecycleUrl = (appId: string): string =>
+  makeUrl(`users/connected-apps/${encodeURIComponent(appId)}/lifecycle`);
+
+export const makeConnectedAppsCsrfTokenUrl = (): string => makeUrl('users/csrf-token');
+
 export const makeSyncLocalDataUrl = (): string => makeUrl('users/syncLocalData');
 
 export const makeVerificationCodeUrl = (): string => makeUrl('users/verificationCode');

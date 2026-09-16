@@ -10,6 +10,7 @@ import NextSeoWrapper from '@/components/NextSeoWrapper';
 import { HeadlessServiceProvider } from '@/components/Notifications/hooks/useHeadlessService';
 import PageContainer from '@/components/PageContainer';
 import ChangePasswordForm from '@/components/Profile/ChangePasswordForm';
+import ConnectedAppsSection from '@/components/Profile/ConnectedAppsSection';
 import DeleteAccountButton from '@/components/Profile/DeleteAccountButton';
 import EditDetailsForm from '@/components/Profile/EditDetailsForm';
 import EmailNotificationSettingsForm from '@/components/Profile/EmailNotificationSettingsForm';
@@ -20,6 +21,8 @@ import { getLanguageAlternates } from '@/utils/locale';
 import { getCanonicalUrl, getProfileNavigationUrl } from '@/utils/navigation';
 
 const ProfilePage: FC = () => {
+  const isConnectedAppsEnabled =
+    process.env.NEXT_PUBLIC_APP_STATE_CONNECTED_APPS_ENABLED === 'true';
   const { t, lang } = useTranslation('profile');
   const { userData } = useAuthData();
   const canUpdatePassword = useMemo(() => {
@@ -46,6 +49,7 @@ const ProfilePage: FC = () => {
           <PersonalizationForm />
           <EditDetailsForm />
           {canUpdatePassword && <ChangePasswordForm />}
+          {isConnectedAppsEnabled && <ConnectedAppsSection />}
           <HeadlessServiceProvider>
             <EmailNotificationSettingsForm />
           </HeadlessServiceProvider>
