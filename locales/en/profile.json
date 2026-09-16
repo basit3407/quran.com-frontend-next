@@ -1,6 +1,27 @@
 {
   "allowed-formats": "Only {{formats}}",
   "change-password": "Change Password",
+  "connected-apps": {
+    "actions": {
+      "delete_data": "Delete app data",
+      "retry": "Retry",
+      "revoke": "Revoke access",
+      "revoke_and_delete": "Revoke access and delete data"
+    },
+    "confirm": "Confirm",
+    "confirm-description": "{{action}} for {{app}}? Completed steps will not be repeated if you retry.",
+    "confirm-title": "Confirm connected app action",
+    "data-categories": "Stored data",
+    "description": "Manage apps connected to your Quran Foundation account. Revoking access and deleting stored app data are separate actions.",
+    "empty": "You have no connected apps.",
+    "environment": "Environment",
+    "error": "The action could not be completed. Retry uses the same request so completed steps are not repeated.",
+    "load-error": "Connected apps could not be loaded. Please try again.",
+    "loading": "Loading connected apps…",
+    "partial-failure": "Some steps are still pending. Retry to continue safely.",
+    "retry-needed": "This action needs to be retried.",
+    "title": "Connected Apps"
+  },
   "delete-account": "Delete Account",
   "delete-account-warning-title": "Warning",
   "delete-confirmation": {

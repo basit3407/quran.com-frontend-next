@@ -60,6 +60,9 @@ import {
   makeCollectionsUrl,
   makeCompleteAnnouncementUrl,
   makeCompleteSignupUrl,
+  makeConnectedAppLifecycleUrl,
+  makeConnectedAppsCsrfTokenUrl,
+  makeConnectedAppsUrl,
   makeCountNotesWithinRangeUrl,
   makeCountQuestionsWithinRangeUrl,
   makeCourseFeedbackUrl,
@@ -117,6 +120,12 @@ import {
 } from '@/utils/auth/apiPaths';
 import { getAdditionalHeaders } from '@/utils/headers';
 import CompleteAnnouncementRequest from 'types/auth/CompleteAnnouncementRequest';
+import {
+  ConnectedAppLifecycleAction,
+  ConnectedAppLifecycleResponse,
+  ConnectedAppsResponse,
+  CsrfTokenResponse,
+} from 'types/auth/ConnectedApp';
 import EnrollmentMethod from 'types/auth/EnrollmentMethod';
 import { GetBookmarkCollectionsIdResponse } from 'types/auth/GetBookmarksByCollectionId';
 import PreferenceGroup from 'types/auth/PreferenceGroup';
@@ -294,6 +303,36 @@ export const updateUserConsent = async (data: {
 };
 
 export const deleteAccount = async (): Promise<void> => deleteRequest(makeDeleteAccountUrl());
+
+export const getConnectedApps = async (): Promise<ConnectedAppsResponse> =>
+  privateFetcher(makeConnectedAppsUrl());
+
+export const runConnectedAppLifecycle = async ({
+  appId,
+  action,
+  requestId,
+  environment,
+}: {
+  appId: string;
+  action: ConnectedAppLifecycleAction;
+  requestId: string;
+  environment: 'prelive' | 'production';
+}): Promise<ConnectedAppLifecycleResponse> => {
+  const csrfResponse = await privateFetcher<CsrfTokenResponse>(makeConnectedAppsCsrfTokenUrl());
+  const headers = new Headers();
+  headers.set('Content-Type', 'application/json');
+  headers.set('X-CSRF-Token', csrfResponse.data.csrfToken);
+  return privateFetcher<ConnectedAppLifecycleResponse>(makeConnectedAppLifecycleUrl(appId), {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      action,
+      requestId,
+      expectedAppId: appId,
+      environment,
+    }),
+  });
+};
 
 type AddBookmarkParams = {
   key: number;
