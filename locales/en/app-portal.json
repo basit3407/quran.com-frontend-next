@@ -59,6 +59,12 @@
       "reflections": "Reflections",
       "study-tools": "Study tools"
     },
+    "search": {
+      "loading": "Searching published apps...",
+      "invalid": "Enter between 2 and 100 letters or numbers to search published apps.",
+      "error": "Published app search is unavailable. Local matches are shown, but results may be incomplete.",
+      "retry": "Try again"
+    },
     "title": "Browse All Apps"
   },
   "cta": {

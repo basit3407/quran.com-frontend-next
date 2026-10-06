@@ -12,20 +12,16 @@ import styles from './apps-portal.module.scss';
 
 import NextSeoWrapper from '@/components/NextSeoWrapper';
 import PageContainer from '@/components/PageContainer';
+import useConnectedAppSearch from '@/hooks/useConnectedAppSearch';
 import useDebounce from '@/hooks/useDebounce';
 import GlobeIcon from '@/icons/globe.svg';
 import SearchQuerySource from '@/types/SearchQuerySource';
 import { getAllChaptersData } from '@/utils/chapter';
+import { AppLinks, AppTile, AppCategory, mergeAppSearchResults } from '@/utils/connectedApps';
 import { logButtonClick, logTextSearchQuery } from '@/utils/eventLogger';
 import { getLanguageAlternates } from '@/utils/locale';
 import { getCanonicalUrl } from '@/utils/navigation';
 import { getBasePath } from '@/utils/url';
-
-interface AppLinks {
-  androidHref?: string;
-  iosHref?: string;
-  webHref?: string;
-}
 
 interface FeaturedApp extends AppLinks {
   id: string;
@@ -35,24 +31,6 @@ interface FeaturedApp extends AppLinks {
   iconSrc: string;
   iconAlt: string;
 }
-
-interface AppTile extends AppLinks {
-  id: string;
-  title: string;
-  description: string;
-  iconSrc: string;
-  iconAlt: string;
-  categories: AppCategory[];
-  tagline?: string;
-}
-
-type AppCategory =
-  | 'study-tools'
-  | 'reflections'
-  | 'popular'
-  | 'quran-reader'
-  | 'community'
-  | 'hadith-sunnah';
 
 type FilterValue = 'all' | AppCategory;
 
@@ -500,6 +478,8 @@ const AppTileCard: FC<{
             src={app.iconSrc}
             fill
             sizes="70px"
+            unoptimized={app.iconSrc.startsWith('https://')}
+            referrerPolicy="no-referrer"
             className={styles.appIconImage}
           />
         </span>
@@ -583,6 +563,8 @@ const BrowseApps: FC<BrowseAppsProps> = ({
 }) => {
   const [activeFilter, setActiveFilter] = useState<FilterValue>('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const { t, lang } = useTranslation('app-portal');
+  const publicSearch = useConnectedAppSearch(searchQuery, lang);
   const debouncedSearchQuery = useDebounce(searchQuery, DEBOUNCE_DELAY);
 
   useEffect(() => {
@@ -592,7 +574,7 @@ const BrowseApps: FC<BrowseAppsProps> = ({
   const filteredApps = useMemo(() => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
 
-    return apps.filter((app) => {
+    const legacyMatches = apps.filter((app) => {
       const matchesFilter = activeFilter === 'all' ? true : app.categories.includes(activeFilter);
       const matchesSearch =
         normalizedQuery.length === 0 ||
@@ -601,13 +583,20 @@ const BrowseApps: FC<BrowseAppsProps> = ({
 
       return matchesFilter && matchesSearch;
     });
-  }, [activeFilter, searchQuery, apps]);
+    if (!normalizedQuery) return legacyMatches;
+    const publishedMatches = publicSearch.apps.filter(
+      (app) => activeFilter === 'all' || app.categories.includes(activeFilter),
+    );
+    return mergeAppSearchResults(legacyMatches, publishedMatches);
+  }, [activeFilter, searchQuery, apps, publicSearch.apps]);
 
   const handleFilterChange = useCallback((filter: FilterValue) => {
     const normalizeFilter = filter?.toLowerCase().replaceAll('-', '_');
     logButtonClick(`app_portal_${normalizeFilter}_tab`);
     setActiveFilter(filter);
   }, []);
+
+  const handleSearchRetry = publicSearch.retry;
 
   const handleSearchChange = useCallback((query: string) => {
     setSearchQuery(query);
@@ -627,7 +616,33 @@ const BrowseApps: FC<BrowseAppsProps> = ({
           searchQuery={searchQuery}
           filters={filters}
         />
-        <AppGrid apps={filteredApps} emptyText={noResultsText} ctaLabels={ctaLabels} />
+        <div role="status" aria-live="polite">
+          {publicSearch.loading && (
+            <p className={styles.emptyState}>{t('browse.search.loading')}</p>
+          )}
+          {publicSearch.invalid && (
+            <p className={styles.emptyState}>{t('browse.search.invalid')}</p>
+          )}
+          {publicSearch.error && (
+            <p className={styles.emptyState}>
+              {t('browse.search.error')}{' '}
+              <button type="button" className={styles.pill} onClick={handleSearchRetry}>
+                {t('browse.search.retry')}
+              </button>
+            </p>
+          )}
+        </div>
+        <div aria-busy={publicSearch.loading}>
+          <AppGrid
+            apps={filteredApps}
+            emptyText={
+              publicSearch.loading || publicSearch.error || publicSearch.invalid
+                ? ''
+                : noResultsText
+            }
+            ctaLabels={ctaLabels}
+          />
+        </div>
       </div>
     </section>
   );
