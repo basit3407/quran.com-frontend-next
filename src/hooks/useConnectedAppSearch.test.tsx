@@ -7,6 +7,8 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import useConnectedAppSearch from './useConnectedAppSearch';
 
+import { appSearchQueryCases } from '@/tests/helpers/connected-app-search-query';
+
 const wrapper = ({ children }: { children: React.ReactNode }) =>
   React.createElement(
     SWRConfig,
@@ -20,6 +22,32 @@ afterEach(() => {
 });
 
 describe('published app search client', () => {
+  it.each(appSearchQueryCases)(
+    'uses the Platform-normalized SWR query and validation for $query',
+    async ({ query, expected, valid }) => {
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue(reply('Indexed Companion')));
+      const { result, rerender } = renderHook(({ q }) => useConnectedAppSearch(q, 'ar'), {
+        initialProps: { q: query },
+        wrapper,
+      });
+      expect(result.current.invalid).toBe(!valid);
+      if (!valid) {
+        expect(fetch).not.toHaveBeenCalled();
+        return;
+      }
+      await waitFor(() => expect(result.current.apps[0]?.title).toBe('Indexed Companion'));
+      const [url, options] = vi.mocked(fetch).mock.calls[0];
+      expect(url).toBe(
+        `/api/connected-apps/search?${new URLSearchParams({ q: expected, locale: 'ar' })}`,
+      );
+      expect(options.credentials).toBe('omit');
+      rerender({ q: expected });
+      expect(result.current.apps[0]?.title).toBe('Indexed Companion');
+      expect(result.current.loading).toBe(false);
+      expect(fetch).toHaveBeenCalledTimes(1);
+    },
+  );
+
   it('never fetches or retains Indexed results for an empty query', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(reply('Indexed Companion')));
     const { result, rerender } = renderHook(({ q }) => useConnectedAppSearch(q, 'en'), {

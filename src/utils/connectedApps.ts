@@ -25,13 +25,17 @@ export interface AppTile extends AppLinks {
 
 export const SEARCH_LIMIT = 20;
 
-// Match Platform's NFKC, lowercase, alphanumeric-token search contract.
+// Match Rust's char::is_alphanumeric: Alphabetic (including Other_Alphabetic marks) | Number.
 // The repository targets ES5 in tsc; the runtime supports Unicode property escapes.
 // eslint-disable-next-line prefer-regex-literals
-const SEARCH_SEPARATOR = new RegExp('[^\\p{L}\\p{N}]+', 'gu');
+const SEARCH_SEPARATOR = new RegExp('[^\\p{Alphabetic}\\p{N}]+', 'gu');
 
 export const normalizeAppSearch = (value: string): string =>
-  value.normalize('NFKC').toLowerCase().replace(SEARCH_SEPARATOR, ' ').trim();
+  // Platform lowercases each NFKC scalar independently, without contextual final sigma casing.
+  Array.from(value.normalize('NFKC'), (character) => character.toLowerCase())
+    .join('')
+    .replace(SEARCH_SEPARATOR, ' ')
+    .trim();
 
 export const isValidAppSearch = (value: string): boolean => {
   const { length } = Array.from(normalizeAppSearch(value));

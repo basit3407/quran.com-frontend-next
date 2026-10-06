@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import handler from './search';
 
 import { indexedCard } from '@/tests/helpers/connected-app-card';
+import { appSearchQueryCases } from '@/tests/helpers/connected-app-search-query';
 
 const request = async (
   query: Record<string, unknown> = { q: 'Indexed', locale: 'en' },
@@ -51,6 +52,34 @@ afterEach(() => {
 });
 
 describe('public Connected Apps search adapter', () => {
+  it.each(appSearchQueryCases)(
+    'forwards the exact Platform-normalized query and shares its ETag for $query',
+    async ({ query, expected, valid }) => {
+      const result = await request({ q: query, locale: 'AR' });
+      expect(result.status).toBe(valid ? 200 : 400);
+      if (!valid) {
+        expect(fetch).not.toHaveBeenCalled();
+        expect(result.headers['Cache-Control']).toBe('no-store');
+        return;
+      }
+      const [url] = vi.mocked(fetch).mock.calls[0];
+      expect(String(url)).toBe(
+        `https://platform.example/v1/public/connected-apps/search?${new URLSearchParams({
+          q: expected,
+          locale: 'ar',
+          limit: '20',
+        })}`,
+      );
+      const normalized = await request(
+        { q: expected, locale: 'ar' },
+        { 'if-none-match': result.headers.ETag },
+      );
+      expect(normalized.status).toBe(304);
+      expect(normalized.headers.ETag).toBe(result.headers.ETag);
+      expect(String(vi.mocked(fetch).mock.calls[1][0])).toBe(String(url));
+    },
+  );
+
   it('uses only the published public route, fixed limit, and server credential, ignoring foreign headers', async () => {
     const result = await request(
       { q: ' ＩＮＤＥＸＥＤ—Companion ', locale: 'AR' },

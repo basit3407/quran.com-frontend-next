@@ -8,8 +8,19 @@ import {
 } from './connectedApps';
 
 import { indexedCard } from '@/tests/helpers/connected-app-card';
+import { appSearchQueryCases } from '@/tests/helpers/connected-app-search-query';
 
 describe('Connected App presentation', () => {
+  it.each(appSearchQueryCases)(
+    'matches Platform normalization and scalar bounds for $query',
+    ({ query, expected, valid }) => {
+      expect(normalizeAppSearch(query)).toBe(expected);
+      expect(normalizeAppSearch(expected)).toBe(expected);
+      expect(isValidAppSearch(query)).toBe(valid);
+      expect(isValidAppSearch(expected)).toBe(valid);
+    },
+  );
+
   it('normalizes compatibility text, punctuation, case, and Unicode lengths', () => {
     expect(normalizeAppSearch(' ＱＵＲＡＮ—Study__TOOLS\t\n')).toBe('quran study tools');
     expect(isValidAppSearch('a—')).toBe(false);
